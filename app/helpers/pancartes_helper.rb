@@ -1,0 +1,2 @@
+module PancartesHelper
+end

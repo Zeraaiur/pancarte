@@ -1,5 +1,7 @@
-class ProductController < ApplicationController
+class ProductsController < ApplicationController
   def index
+    @categories = Category.all.order(:name)
+    @classes = Category.pluck(:classe).sort.uniq
   end
 
   def show

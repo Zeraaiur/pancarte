@@ -1,0 +1,18 @@
+<h1>Pancartes#index</h1>
+<p>Find me in app/views/pancartes/index.html.erb</p>
+
+<%= form_tag root_path, method: :get, id: "form" do %>
+
+<% @classes.each do |classe| %>
+<li style="background-color:#ccc" id=<%= "toggle#{classe}" %> onclick="selectCategorie(event, this.id)"><%= classe %>
+  <%= check_box_tag "filtre[#{classe}]"%>
+</li>
+
+
+<% @categories.where("classe = ?", classe).each do |categorie| %>
+<li class="display-none <%= "toggle#{classe}" %>"><%= categorie.name %><%= check_box_tag "filtre[#{categorie.name}]"%></li>
+<% end %>
+<% end %>
+
+<%= submit_tag "filter", id: "filter-product" %>
+<% end %>

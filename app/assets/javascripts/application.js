@@ -14,3 +14,9 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+function selectCategorie(event, id){
+  document.querySelectorAll(`.${id}`).forEach(function(item){
+  item.classList.toggle("display-none")
+})
+  };

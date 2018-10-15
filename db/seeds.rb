@@ -7,10 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
-
+ProductCategory.destroy_all
 Product.destroy_all
 Category.destroy_all
+
 puts "destroyed DB"
+
+classes = ["Signalisation", "Chasse", "Nature", "Corporatif", "Autre"]
 
 40.times do
   product = Product.new(
@@ -23,7 +26,8 @@ end
 
 15.times do
   category = Category.new(
-    name: Faker::NatoPhoneticAlphabet.code_word ,
+    name: Faker::NatoPhoneticAlphabet.code_word,
+    classe: classes.sample
     )
   category.save!
 
@@ -31,7 +35,7 @@ end
 
 Product.all.each do |product|
 
-  category_array = Category.all
+  category_array = Category.all.sample(3)
 
   category_array.each do |category|
 

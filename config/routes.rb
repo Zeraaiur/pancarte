@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'products/update'
   get 'products/destroy'
 
-  root to: 'pages#landing'
+  root to: 'products#index'
 
   get 'pages/contact'
   get 'pages/about'
